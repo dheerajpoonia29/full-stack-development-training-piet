@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex justify-center bg-gray-100 p-10">
+    <main class="bg-white shadow-lg rounded-lg w-full p-6">
+
+        <div>
+            <!-- div1 heading -->
+            <h1 class="text-3xl font-bold text-gray-500">My To-DO List</h1>
+        </div>
+
+        <div class="mt-4">
+            <!-- div2 todo form -->
+            <form class="flex gap-5 mb-5 mt-5">
+                <input class="flex-1 border rounded px-2 py-2" type="text" placeholder="Add a new task...">
+                <button class="bg-blue-600 text-white font-bold rounded px-2 py-2" type="submit">Add</button>
+            </form>
+        </div>
+
+        <div>
+            <!-- div3 todo list -->
+            <ul class="space-y-3">
+                <li class="flex gap-2">
+                    <!-- item1 -->
+                    <input type="checkbox">Goto gym
+                    <!-- item2 -->
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times;</button>
+                </li>
+                <li class="flex gap-2">
+                    <input type="checkbox">Learn tailwind css
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times;</button>
+                </li>
+                <li class="flex gap-2">
+                    <input type="checkbox">Integrate todo list API
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times;</button>
+                </li>
+                <li class="flex gap-2">
+                    <input type="checkbox">Buy groceries
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times;</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mt-8">
+            <!-- div4 todo completed list -->
+            <h2 class="text-lg text-gray-500 mb-2">Completed Task</h2>
+            <ul class="space-y-3">
+                <li>
+                    <input type="checkbox" checked> Learn html
+                </li>
+                <li>
+                    <input type="checkbox" checked> Learn css
+                </li>
+                <li>
+                    <input type="checkbox" checked> Create a sample project
+                </li>
+            </ul>
+        </div>
+
+    </main>
+</body>
+
+</html>
