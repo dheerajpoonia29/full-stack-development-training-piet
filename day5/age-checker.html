@@ -6,7 +6,10 @@
         // internal javascript
         function handleInput() {
             // here we take input from age input field by id
-            let age = document.getElementById("age").value;
+            let age = parseInt(document.getElementById("age").value); 
+            // age = parseInt(age);
+            console.log(typeof age);
+            console.log(age === 2);
 
             // here find the age category based on the age input 
             let yourCategory = "";
