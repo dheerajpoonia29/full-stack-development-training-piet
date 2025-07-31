@@ -10,7 +10,4 @@ function getFee() {
     return 1000;
 }
 
-module.exports = {
-    payFee,
-    getFee
-};
+module.exports = {payFee,getFee};
