@@ -8,7 +8,9 @@ for (let index = 0; index < arr.length; index++) {
 
 console.log("\n\n-----------------")
 
-// 2nd way to iterate the array using map function
+// 2nd way to iterate the array using map function 
 arr.map((ele, index) => {
     console.log(`index is ${index} ele is ${ele}`)
 })
+
+// method 2nd is only allowed method to write jsx to iterate array
