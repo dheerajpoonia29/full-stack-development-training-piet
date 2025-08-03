@@ -7,7 +7,7 @@ function Counter() {
     // count is a state which provide memory and function setCount to update count state
     // let [myState, setMyState] = useState(default value)
     // 1st word of state should be smaller
-    let [count, setCount] = useState(0); 
+    let [count, setCount] = useState(10); 
 
     return (
         <div>

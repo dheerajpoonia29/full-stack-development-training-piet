@@ -8,10 +8,12 @@ function SimpleForm() {
         // prevenDefault function preventing webpage from reload
         e.preventDefault();
         alert("form is submitted your name = " + name)
+        // save form response database
     }
 
     return (
         <div>
+            <h1>your name is = {name}</h1>
             <form
                 onSubmit={(e) => handleSubmit(e)}
             >
