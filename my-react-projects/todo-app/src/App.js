@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header'
+import HomePage from './HomePage'
+import Footer from './Footer'
+import AddTodoPage from './AddTodoPage'
+import ShowTodoPage from './ShowTodoPage'
+import DoneTodoPage from './DoneTodoPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 function App() {
+  // todo is a state type of arrays of object
+  let [todo, setTodo] = useState([
+    {
+      "id": 1,
+      "todoTitle": "buy grocery",
+      "dueDate": "05/08/2025",
+      "completeDate": "",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "todoTitle": "go to gym",
+      "dueDate": "05/08/2025",
+      "completeDate": "",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "todoTitle": "learn react",
+      "dueDate": "05/08/2025",
+      "completeDate": "",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "todoTitle": "play cricket",
+      "dueDate": "05/08/2025",
+      "completeDate": "",
+      "status": "pending"
+    }])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/todo-add" element={<AddTodoPage />} />
+        <Route path="/todo-show" element={<ShowTodoPage todo={todo} setTodo={setTodo} />} />
+        <Route path="/todo-done" element={<DoneTodoPage />} />
+      </Routes>
+
+      <Footer />
+    </BrowserRouter>
   );
 }
 
