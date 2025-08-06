@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Demo Page</title>
+  <style>
+    /* Typography */
+    h1 {
+      color: #087df2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* Box Model */
+    .box {
+      width: 200px;
+      height: 100px;
+      padding: 20px;
+      margin: 20px auto;
+      border: 2px solid #2980b9;
+      background-color: #ecf0f1;
+    }
+
+    /* Positioning */
+    .relative-box {
+      position: relative;
+      left: 30px;
+      top: 10px;
+      background-color: #f39c12;
+    }
+
+    /* Flexbox */
+    .flex-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    .flex-item {
+      background-color: #9b59b6;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      flex: 1;
+      margin: 5px;
+      text-align: center;
+    }
+
+    /* Hover effect */
+    .hover-box:hover {
+      background-color: #2ecc71;
+      cursor: pointer;
+    }
+
+    /* Responsive with Media Query */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 20px;
+      }
+      .flex-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Concepts Demo</h1>
+
+  <div class="box">Box Model Demo</div>
+
+  <div class="box relative-box">Positioning: Relative</div>
+
+  <div class="flex-container">
+    <div class="flex-item">Flex 1</div>
+    <div class="flex-item hover-box">Flex 2 (Hover Me)</div>
+    <div class="flex-item">Flex 3</div>
+  </div>
+
+</body>
+</html>

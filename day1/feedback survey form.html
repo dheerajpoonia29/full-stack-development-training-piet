@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Survey Form</title>
+</head>
+
+<body>
+    <main>
+        <h1>Feedback Survey Form</h1>
+        <form id="survey-form">
+            <p>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </p>
+
+            <p>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </p>
+
+            <p>
+                <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age" min="1" max="150">
+            </p>
+
+            <p>
+                <label for="feedback-type">Type of Feedback:</label><br>
+                <select id="feedback-type" name="feedback-type">
+                    <option value="">--Select--</option>
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                    <option value="suggestion">Suggestion</option>
+                </select>
+            </p>
+
+            <fieldset>
+                <legend>Services Used:</legend>
+                <input type="checkbox" id="service1" name="services" value="service1">
+                <label for="service1">Service 1</label><br>
+
+                <input type="checkbox" id="service2" name="services" value="service2">
+                <label for="service2">Service 2</label><br>
+
+                <input type="checkbox" id="service3" name="services" value="service3">
+                <label for="service3">Service 3</label>
+            </fieldset>
+
+            <p>
+                <label for="comments">Additional Comments:</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="40"></textarea>
+            </p>
+
+            <p>
+                <button type="submit">Submit Feedback</button>
+            </p>
+        </form>
+    </main>
+</body>
+
+</html>live 

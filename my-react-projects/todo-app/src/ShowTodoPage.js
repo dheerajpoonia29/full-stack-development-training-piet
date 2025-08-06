@@ -2,10 +2,17 @@ function ShowTodoPage(props) {
     let todoArr = props.todo;
 
     function handleClick(e, todoId) {
-        // delete todo from todoArr where id=todoId
-        todoArr = todoArr.filter(todo => todo.id !== todoId);
-        props.setTodo(todoArr);
-        alert("Todo Completed");
+        let newTodoArr = []
+
+        for (let i = 0; i < todoArr.length; i++) {
+            newTodoArr[i] = todoArr[i]
+
+            if (todoArr[i].id == todoId) {
+                newTodoArr[i].status = "completed";
+                newTodoArr[i].completedDate = new Date()
+            }
+        }
+        props.setTodo(newTodoArr);
     }
 
     return (
@@ -13,16 +20,20 @@ function ShowTodoPage(props) {
             <table border="1">
                 <tr>
                     <th>Todo Title</th>
+                    <th>Status</th>
                     <th>Due Date</th>
                     <th>Mark Done</th>
                 </tr>
                 {
-                    todoArr.map((value, index) => (
-                        <tr>
-                            <td>{value.todoTitle}</td>
-                            <td>{value.dueDate}</td>
-                            <td><button onClick={(e) => handleClick(e, value.id)}>✅</button></td>
-                        </tr>
+                    todoArr.map((todo, index) => (
+                        todo.status == "pending" && (
+                            <tr key={todo.id}>
+                                <td>{todo.todoTitle}</td>
+                                <td>{todo.status}</td>
+                                <td>{todo.dueDate}</td>
+                                <td><button onClick={(e) => handleClick(e, todo.id)}>✅</button></td>
+                            </tr>
+                        )
                     ))
                 }
 

@@ -1,6 +1,9 @@
 import { useState } from 'react'
 
-function AddTodoPage() {
+function AddTodoPage(props) {
+    let todo = props.todo;
+    let setTodo = props.setTodo;
+
     let [formData, setFormData] = useState({
         todoTitle: '',
         dueDate: '',
@@ -18,8 +21,23 @@ function AddTodoPage() {
     }
 
     function handleSubmit(e) {
+        // preventDefault function prevent website from reload, because reloaded our state go into default values
+        e.preventDefault();
+
         // stringify is function JSON file which take parameter as object/json and return string of it
         alert("form submitted, data = " + JSON.stringify(formData))
+
+        // update state 
+        setTodo(previousTodos => ([
+            ...previousTodos,
+            {
+                "id": Date.now(),
+                "todoTitle": formData.todoTitle,
+                "dueDate": formData.dueDate,
+                "status": formData.status,
+                "completeDate": "",
+            }
+        ]))
     }
 
 

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Bio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 200px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #f0f0f0;
+            width: 40%;
+        }
+
+        ul {
+            text-align: left;
+            margin: 10px 0 20px;
+            padding-left: 20px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>My Personal Bio</h1>
+
+        <img src="/Users/dheerajpoonia29/Documents/PIET Training/T1/dp.jpeg" alt="Profile Picture">
+
+        <h2>Dheeraj Poonia</h2>
+        <p>Hi! I'm a Software Engineer with a passion for web development and fitness. I love learning new technologies,
+            solving problems, and exploring the world.</p>
+
+        <h3>Details</h3>
+        <table>
+            <tr>
+                <th>Full Name</th>
+                <td>Dheeraj Poonia</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>Software Engineer</td>
+            </tr>
+            <tr>
+                <th>Education</th>
+                <td>B.Tech in Computer Science</td>
+            </tr>
+            <tr>
+                <th>Skills</th>
+                <td>Java, Spring Boot, JavaScript, React</td>
+            </tr>
+            <tr>
+                <th>Hobbies</th>
+                <td>Gym, Music, Travel</td>
+            </tr>
+        </table>
+
+        <h3>My Favorite Technologies</h3>
+        <ul>
+            <li>Java</li>
+            <li>Spring Boot</li>
+            <li>React</li>
+            <li>Docker</li>
+            <li>Git</li>
+        </ul>
+
+        <h3>Contact Me</h3>
+        <form>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+
+</body>
+
+</html>
