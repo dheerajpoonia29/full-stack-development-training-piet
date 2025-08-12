@@ -1,0 +1,15 @@
+[
+    // document1
+    {"todoTitle": "goto gym","dueDate": "07-08-2025","status": "pending","completedDate": ""},
+
+    // document2
+    {"todoTitle": "watch movie","dueDate": "","status": "","completedDate": ""},
+
+    // document3
+    {
+        "todoTitle": "play cricket",
+        "dueDate": "",
+        "status": "",
+        "completedDate": ""
+    }
+]

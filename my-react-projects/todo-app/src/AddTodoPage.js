@@ -16,7 +16,7 @@ function AddTodoPage(props) {
 
         setFormData(prev => ({
             ...prev,
-            [inputName]: [inputValue]
+            [inputName]: inputValue
         }))
     }
 

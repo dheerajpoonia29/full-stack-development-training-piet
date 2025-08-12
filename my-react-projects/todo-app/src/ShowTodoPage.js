@@ -1,5 +1,6 @@
 function ShowTodoPage(props) {
     let todoArr = props.todo;
+    console.log(JSON.stringify(todoArr))
 
     function handleClick(e, todoId) {
         let newTodoArr = []
