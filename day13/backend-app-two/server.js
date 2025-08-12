@@ -45,6 +45,10 @@ url = /insert-user
 request = {"user": "dheeraj", "age": 26}
 response = 'user inserted successfull'
 */
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
 app.post('/insert-user', (request, response) => {
     console.log(`content of request = ${JSON.stringify(request.body)}`)
     response.send("user inserted successfull")
