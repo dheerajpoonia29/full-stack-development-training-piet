@@ -34,8 +34,9 @@ request = {
 }
 response = person name is ram
 */
-app.post('/insert-person', (request, response) => {
 
+app.post('/insert-person', (request, response) => {
+    response.json("person name is " + request.body.name)
 })
 
 /*
@@ -53,6 +54,26 @@ response = {
         "officeAddress": "gurugram"
     }
 */
+app.post('/full-address', (request, response) => {
+    response.json(request.body.address)
+})
+
+
+/*
+path = '/insert-person-1'
+http method = post
+request = {
+    "personName": "ram",
+    "address": {
+        "homeAddress": "panipat",
+        "officeAddress": "gurugram"
+    }
+}
+response = "user home address is panipat"
+*/
+app.post('/home-address', (request, response) => {
+    response.send("user home address is " + request.body.address.homeAddress)
+})
 
 app.listen(port, () => {
     console.log("my backend server is started at port " + port)

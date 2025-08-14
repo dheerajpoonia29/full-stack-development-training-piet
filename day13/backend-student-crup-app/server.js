@@ -51,7 +51,7 @@ app.get('/read-many-student', (req, res) => {
 // API 4 update student
 app.patch('/update-student', (req, res) => {
     console.log(`user id = ${req.query.id}`)
-    console.log(`update data = ${req.body}`)
+    console.log(`update data = ${JSON.stringify(req.body)}`)
     res.send("student updated successfully")
 })
 
