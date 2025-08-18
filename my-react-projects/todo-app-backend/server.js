@@ -34,3 +34,17 @@ app.get('/read-todos', async (req, res) => {
         res.status(500).json({ msg: "internal server occur" })
     }
 })
+
+app.get('/read-todo', async (req, res) => {
+    try {
+        let queryTodoId = req.query.todoId;
+        let todo = await db.collection('todo').findOne({ 'todoId': queryTodoId })
+        res.status(200).json(todo)
+    } catch (error) {
+        res.status(500).json({
+            msg: "internal server occur",
+            error: error.message
+        })
+    }
+})
+
