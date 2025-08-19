@@ -15,7 +15,7 @@ function DoneTodoPage(props) {
                             <tr key={todo.id}>
                                 <td>{todo.todoTitle}</td>
                                 <td>{todo.status}</td>
-                                <td>{todo.completedDate?.toLocaleDateString()}</td>
+                                <td>{new Date(todo.completionDate).toLocaleDateString()}</td>
                             </tr>
                         )
                     ))
