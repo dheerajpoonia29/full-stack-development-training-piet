@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { callCreateAPI } from './BackendAPI'
 
 function AddTodoPage(props) {
     let todo = props.todo;
@@ -20,24 +21,21 @@ function AddTodoPage(props) {
         }))
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         // preventDefault function prevent website from reload, because reloaded our state go into default values
         e.preventDefault();
 
         // stringify is function JSON file which take parameter as object/json and return string of it
         alert("form submitted, data = " + JSON.stringify(formData))
 
-        // update state 
-        setTodo(previousTodos => ([
-            ...previousTodos,
-            {
-                "id": Date.now(),
-                "todoTitle": formData.todoTitle,
-                "dueDate": formData.dueDate,
-                "status": formData.status,
-                "completeDate": "",
-            }
-        ]))
+        let newTodo = {
+            todoId: Date.now().toString(),
+            todoTitle: formData.todoTitle,
+            dueDate: formData.dueDate,
+            status: 'pending'
+        }
+        await callCreateAPI('/create-todo', newTodo)
+
     }
 
 
@@ -71,4 +69,4 @@ function AddTodoPage(props) {
     )
 }
 
-export default AddTodoPage;
+export default AddTodoPage; 

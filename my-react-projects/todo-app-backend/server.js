@@ -1,11 +1,15 @@
 import express from 'express'
 import connectToDatabase from './db.js'
+import cors from 'cors'
 
 const app = express()
 const port = 3000
 let db;
 
 app.use(express.json())
+app.use(cors({
+    origin: "http://localhost:3001"
+}));
 
 app.listen(port, async () => {
     db = await connectToDatabase('todo-project-db')
@@ -40,6 +44,42 @@ app.get('/read-todo', async (req, res) => {
         let queryTodoId = req.query.todoId;
         let todo = await db.collection('todo').findOne({ 'todoId': queryTodoId })
         res.status(200).json(todo)
+    } catch (error) {
+        res.status(500).json({
+            msg: "internal server occur",
+            error: error.message
+        })
+    }
+})
+
+app.patch('/update-todo', async (req, res) => {
+    try {
+        let queryTodoId = req.query.todoId;
+        let reqBody = req.body;
+
+        let result = await db.collection('todo').updateOne({ "todoId": queryTodoId }, { $set: reqBody })
+        if (result.matchedCount === 0) {
+            res.status(404).json({ msg: 'todo not found' })
+        } else
+            res.status(201).json({ msg: 'todo updated successfully' })
+    } catch (error) {
+        res.status(500).json({
+            msg: "internal server occur",
+            error: error.message
+        })
+    }
+})
+
+app.delete('/delete-todo', async (req, res) => {
+    try {
+        let queryTodoId = req.query.todoId;
+        let result = await db.collection('todo').deleteOne({ 'todoId': queryTodoId })
+
+        if (result.deletedCount === 0) {
+            res.status(404).json({ msg: 'todo not found' })
+        } else {
+            res.status(201).json({ msg: 'todo deleted' })
+        }
     } catch (error) {
         res.status(500).json({
             msg: "internal server occur",
