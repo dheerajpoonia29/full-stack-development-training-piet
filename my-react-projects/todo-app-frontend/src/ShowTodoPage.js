@@ -1,23 +1,23 @@
+import { callUpdateAPI, callGetAllAPI } from "./BackendAPI";
+
 function ShowTodoPage(props) {
     let todoArr = props.todo;
     console.log(JSON.stringify(todoArr))
 
-    function handleClick(e, todoId) {
-        let newTodoArr = []
+    async function handleClick(e, todoId) {
 
-        for (let i = 0; i < todoArr.length; i++) {
-            newTodoArr[i] = todoArr[i]
+        await callUpdateAPI(
+            '/update-todo',
+            { status: 'completed', completionDate: new Date() },
+            { 'todoId': todoId }
+        )
 
-            if (todoArr[i].id == todoId) {
-                newTodoArr[i].status = "completed";
-                newTodoArr[i].completedDate = new Date()
-            }
-        }
-        props.setTodo(newTodoArr);
+        let todoList = await callGetAllAPI('/read-todos');
+        props.setTodo(todoList);
     }
 
     return (
-        <div class="bg-purple-200 h-[200px] flex justify-center items-center">
+        <div class="bg-purple-200 h-[400px] flex justify-center items-center">
             <table border="1">
                 <tr>
                     <th>Todo Title</th>
@@ -28,11 +28,11 @@ function ShowTodoPage(props) {
                 {
                     todoArr.map((todo, index) => (
                         todo.status == "pending" && (
-                            <tr key={todo.id}>
+                            <tr key={todo.todoId}>
                                 <td>{todo.todoTitle}</td>
                                 <td>{todo.status}</td>
                                 <td>{todo.dueDate}</td>
-                                <td><button onClick={(e) => handleClick(e, todo.id)}>✅</button></td>
+                                <td><button onClick={(e) => handleClick(e, todo.todoId)}>✅</button></td>
                             </tr>
                         )
                     ))

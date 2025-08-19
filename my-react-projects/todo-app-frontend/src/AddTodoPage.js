@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { callCreateAPI } from './BackendAPI'
+import { callCreateAPI, callGetAllAPI } from './BackendAPI'
 
 function AddTodoPage(props) {
     let todo = props.todo;
@@ -36,11 +36,14 @@ function AddTodoPage(props) {
         }
         await callCreateAPI('/create-todo', newTodo)
 
+        // get our todo again
+        const todoList = await callGetAllAPI('/read-todos');
+        setTodo(todoList);
     }
 
 
     return (
-        <div class="bg-pink-200 h-[200px] flex justify-center items-center">
+        <div class="bg-pink-200 h-[400px] flex justify-center items-center">
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>Todo Title</label>
                 <input

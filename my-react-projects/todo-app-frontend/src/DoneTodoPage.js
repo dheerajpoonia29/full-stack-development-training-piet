@@ -2,7 +2,7 @@ function DoneTodoPage(props) {
     let todoArr = props.todo;
 
     return (
-        <div class="bg-purple-200 h-[200px] flex justify-center items-center">
+        <div class="bg-purple-200 h-[400px] flex justify-center items-center">
             <table border="1">
                 <tr>
                     <th>Todo Title</th>
