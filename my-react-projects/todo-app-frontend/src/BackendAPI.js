@@ -48,7 +48,7 @@ async function callUpdateAPI(apiPath, body, params) {
 }
 
 async function callDeletePI(apiPath, params) {
-    return await axios.delete(host + apiPath, body, { 'params': params })
+    return await axios.delete(host + apiPath, { 'params': params })
         .then(response => {
             console.log(`callDeletePI response ${JSON.stringify(response.data)}`)
             return response.data;
