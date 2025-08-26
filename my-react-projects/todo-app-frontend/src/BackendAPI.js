@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const host = "http://localhost:3000"
+// const host = "http://localhost:3000"
+const host = "https://todo-app-backend-vsld.onrender.com"
 
 async function callCreateAPI(apiPath, body) {
     return await axios.post(host + apiPath, body)
@@ -15,6 +16,7 @@ async function callCreateAPI(apiPath, body) {
 }
 
 async function callGetAllAPI(apiPath) {
+    console.log(`callGetAllAPI ${host + apiPath}`)
     return await axios.get(host + apiPath)
         .then(response => {
             console.log(`callGetAllAPI response ${JSON.stringify(response.data)}`);
